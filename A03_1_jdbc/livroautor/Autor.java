@@ -1,55 +1,30 @@
 package aulas.semana08.exemplosaula.livroautor;
-import java.util.ArrayList;
-import java.util.List;
-
-public final class Autor {
-
+public class Autor {
     private int id;
     private String nome;
-    private List<Livro> livros;
+    private String dataNascimento;
+    private String documento;
+    private String naturalidade;
 
-    public Autor(String nome) {
-        this.nome = nome;
-        this.livros = new ArrayList();
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setLivros(List<Livro> livros) {
-         for(Livro livro: livros){
-             this.adicionarLivro(livro);
-        }
-    }
-
-    public List<Livro> getLivros() {
-        return this.livros;
-    }
-
-    public void adicionarLivro(Livro livro) {
-        if (!this.getLivros().contains(livro)) {
-            this.livros.add(livro);
-            livro.adicionarAutor(this);
-        }
-    }
-
-    public void removerLivro(Livro livro) {
-        if (this.getLivros().contains(livro)) {
-            this.livros.remove(livro);
-            livro.removerAutor(this);
-        }
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
+    public Autor(int id, String nome, String dataNascimento, String documento, String naturalidade) {
         this.id = id;
+        this.nome = nome;
+        this.dataNascimento = dataNascimento;
+        this.documento = documento;
+        this.naturalidade = naturalidade;
+    }
+
+    // Getters e Setters
+    public int getId() { return id; }
+    public String getNome() { return nome; }
+    public String getDataNascimento() { return dataNascimento; }
+    public String getDocumento() { return documento; }
+    public String getNaturalidade() { return naturalidade; }
+
+    @Override
+    public String toString() {
+        return id + " - " + nome;
     }
 }
+
+
